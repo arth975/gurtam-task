@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/newsSourcesFragment">
+
+    <fragment
+        android:id="@+id/newsSourcesFragment"
+        android:name="com.gurtam.task.ui.fragments.NewsSourcesFragment"
+        android:label="NewsSourcesFragment" >
+        <action
+            android:id="@+id/action_newsSourcesFragment_to_newsListFragment"
+            app:destination="@id/newsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsListFragment"
+        android:name="com.gurtam.task.ui.fragments.NewsListFragment"
+        android:label="NewsListFragment" >
+        <action
+            android:id="@+id/action_newsListFragment_to_singleNewsFragment"
+            app:destination="@id/singleNewsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singleNewsFragment"
+        android:name="com.gurtam.task.ui.fragments.SingleNewsFragment"
+        android:label="SingleNewsFragment" />
+</navigation>

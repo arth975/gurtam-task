@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="newsSource"
+            type="com.gurtam.task.models.NewsSourceUI" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/news_source_item_padding_top">
+
+        <TextView
+            android:id="@+id/text_source_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/news_source_item_description_start_margin"
+            android:text="@{newsSource.name}"
+            android:textColor="@color/font_primary"
+            android:textSize="@dimen/news_source_item_name_text_size" />
+
+        <TextView
+            android:id="@+id/text_source_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/news_source_item_description_start_margin"
+            android:layout_marginTop="@dimen/news_source_item_description_top_margin"
+            android:text="@{newsSource.description}"
+            android:textColor="@color/font_secondary"
+            android:textSize="@dimen/news_source_item_description_text_size" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_marginTop="@dimen/news_source_item_padding_bottom"
+            android:background="@color/item_underline_color" />
+
+    </LinearLayout>
+</layout>

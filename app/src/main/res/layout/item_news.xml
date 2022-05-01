@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="news"
+            type="com.gurtam.task.models.NewsUI" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/news_item_margin_top">
+
+        <!--Article Image-->
+        <ImageView
+            android:id="@+id/image_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/news_item_image_margin_top"
+            android:contentDescription="@string/image_content_description"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintEnd_toEndOf="@id/guideline_image_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/text_publish_date" />
+
+        <!--Article Title-->
+        <TextView
+            android:id="@+id/text_article_title"
+            style="@style/News_Item_Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{news.title}"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_title_start"
+            app:layout_constraintTop_toTopOf="@id/image_content" />
+
+        <!--Published date-->
+        <TextView
+            android:id="@+id/text_publish_date"
+            style="@style/News_Item_Secondary_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/image_content"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--Bottom line-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/news_item_bottom_line_height"
+            android:layout_marginTop="@dimen/news_item_margin_bottom"
+            android:background="@color/item_underline_color"
+            app:layout_constraintTop_toBottomOf="@id/image_content" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="@dimen/news_item_guide_start" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="@dimen/news_item_guide_end" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_image_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="@dimen/news_item_guide_image_end" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_title_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="@dimen/news_item_guide_title_start" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

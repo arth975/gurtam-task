@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="News_Item_Title">
+        <item name="android:textSize">@dimen/news_item_text_size_title</item>
+        <item name="android:textColor">@color/font_primary</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lines">4</item>
+    </style>
+
+    <style name="News_Item_Secondary_Text">
+        <item name="android:textSize">@dimen/news_item_text_size_secondary</item>
+        <item name="android:textColor">@color/font_secondary</item>
+    </style>
+</resources>
