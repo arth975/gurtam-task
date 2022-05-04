@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">gurtam-task</string>
     <string name="image_content_description">Image Content</string>
+
+    <string name="label_fragment_news_sources">Sources</string>
+    <string name="article_source_page"><u>Source page</u></string>
 </resources>

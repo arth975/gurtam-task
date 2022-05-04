@@ -3,7 +3,7 @@
 
     <dimen name="margin_common_horizontal">15dp</dimen>
 
-    <dimen name="news_source_list_top_padding">15dp</dimen>
+    <dimen name="list_top_padding">15dp</dimen>
 
     <dimen name="news_source_item_padding_top">9dp</dimen>
     <dimen name="news_source_item_padding_bottom">9dp</dimen>
@@ -12,17 +12,23 @@
     <dimen name="news_source_item_description_top_margin">8dp</dimen>
     <dimen name="news_source_item_description_start_margin">8dp</dimen>
 
-    <dimen name="news_item_margin_top">9dp</dimen>
-    <dimen name="news_item_margin_bottom">9dp</dimen>
-    <dimen name="news_item_image_margin_top">8dp</dimen>
-    <dimen name="news_item_favorite_button_size">28dp</dimen>
-    <dimen name="news_item_favorite_icon_height">18dp</dimen>
-    <dimen name="news_item_text_size_title">13sp</dimen>
-    <dimen name="news_item_text_size_secondary">11sp</dimen>
-    <dimen name="news_item_text_size_category_name">11sp</dimen>
-    <dimen name="news_item_bottom_line_height">0.6dp</dimen>
-    <dimen name="news_item_guide_start">0.038</dimen>
-    <dimen name="news_item_guide_title_start">0.34</dimen>
-    <dimen name="news_item_guide_end">0.962</dimen>
-    <dimen name="news_item_guide_image_end">0.32</dimen>
+    <dimen name="article_item_margin_top">9dp</dimen>
+    <dimen name="article_item_margin_bottom">9dp</dimen>
+    <dimen name="article_item_image_margin_top">8dp</dimen>
+    <dimen name="article_item_favorite_button_size">28dp</dimen>
+    <dimen name="article_item_favorite_icon_height">18dp</dimen>
+    <dimen name="article_item_text_size_title">13sp</dimen>
+    <dimen name="article_item_text_size_secondary">11sp</dimen>
+    <dimen name="article_item_text_size_category_name">11sp</dimen>
+    <dimen name="article_item_bottom_line_height">0.6dp</dimen>
+    <dimen name="article_item_guide_start">0.038</dimen>
+    <dimen name="article_item_guide_title_start">0.42</dimen>
+    <dimen name="article_item_guide_end">0.962</dimen>
+    <dimen name="article_item_guide_image_end">0.4</dimen>
+
+    <dimen name="article_title_text_size">18sp</dimen>
+    <dimen name="article_content_text_size">14sp</dimen>
+    <dimen name="article_source_link_text_size">14sp</dimen>
+    <dimen name="article_margin_top">10dp</dimen>
+    <dimen name="article_publish_date_margin_top">7dp</dimen>
 </resources>

@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/gurtam-task/app/src/main/res/drawable/color_article_source_page.xml" value="0.1" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/gurtam-task/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/gurtam-task/app/src/main/res/layout/fragment_article_single.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/gurtam-task/app/src/main/res/layout/fragment_articles_list.xml" value="0.15806159420289856" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/gurtam-task/app/src/main/res/layout/fragment_news_list.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/gurtam-task/app/src/main/res/layout/fragment_news_single.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/gurtam-task/app/src/main/res/layout/fragment_news_sources.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/gurtam-task/app/src/main/res/layout/item_article.xml" value="0.2" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/gurtam-task/app/src/main/res/layout/item_news.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/gurtam-task/app/src/main/res/layout/item_news_source.xml" value="0.1" />
       </map>

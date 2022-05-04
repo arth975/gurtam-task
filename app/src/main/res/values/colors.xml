@@ -10,5 +10,7 @@
 
     <color name="font_primary">#000000</color>
     <color name="font_secondary">#222222</color>
+    <color name="font_article_source_link">#3750DD</color>
+    <color name="font_article_source_link_pressed">#5068EF</color>
     <color name="item_underline_color">#686868</color>
 </resources>

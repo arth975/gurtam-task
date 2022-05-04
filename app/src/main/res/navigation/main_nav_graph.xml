@@ -7,21 +7,34 @@
     <fragment
         android:id="@+id/newsSourcesFragment"
         android:name="com.gurtam.task.ui.fragments.NewsSourcesFragment"
-        android:label="NewsSourcesFragment" >
+        android:label="@string/label_fragment_news_sources">
         <action
             android:id="@+id/action_newsSourcesFragment_to_newsListFragment"
             app:destination="@id/newsListFragment" />
     </fragment>
     <fragment
         android:id="@+id/newsListFragment"
-        android:name="com.gurtam.task.ui.fragments.NewsListFragment"
-        android:label="NewsListFragment" >
+        android:name="com.gurtam.task.ui.fragments.ArticlesListFragment"
+        android:label="{newsSourceName}">
+        <argument
+            android:name="newsSource"
+            app:argType="com.gurtam.task.models.NewsSourceUI" />
+        <argument
+            android:name="newsSourceName"
+            app:argType="string" />
         <action
             android:id="@+id/action_newsListFragment_to_singleNewsFragment"
-            app:destination="@id/singleNewsFragment" />
+            app:destination="@id/singleArticleFragment" />
     </fragment>
     <fragment
-        android:id="@+id/singleNewsFragment"
-        android:name="com.gurtam.task.ui.fragments.SingleNewsFragment"
-        android:label="SingleNewsFragment" />
+        android:id="@+id/singleArticleFragment"
+        android:name="com.gurtam.task.ui.fragments.SingleArticleFragment"
+        android:label="{newsSourceName}">
+        <argument
+            android:name="article"
+            app:argType="com.gurtam.task.models.ArticleUI" />
+        <argument
+            android:name="newsSourceName"
+            app:argType="string" />
+    </fragment>
 </navigation>

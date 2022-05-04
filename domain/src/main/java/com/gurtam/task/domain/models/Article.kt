@@ -2,10 +2,10 @@ package com.gurtam.task.domain.models
 
 import java.time.LocalDateTime
 
-data class News(
+data class Article(
     val title: String?,
     val description: String?,
-    val publishDate: LocalDateTime?,
+    val publishedDate: LocalDateTime?,
     val imageUrl: String?,
     val url: String?
 )

@@ -1,6 +1,5 @@
 package com.gurtam.task.data.repositories
 
-import android.util.Log
 import com.gurtam.task.data.mappers.toDomain
 import com.gurtam.task.data.mappers.toEntity
 import com.gurtam.task.data.repositories.sources.newssource.NewsSourceLocalDataSource
@@ -31,12 +30,8 @@ class NewsSourceRepositoryImpl(
                 ResultOf.success(localDataSource.fetchAll().map { it.toDomain() })
             emit(refreshedResource)
         } catch (e: Exception) {
-            Log.d("TAG", e.message.toString())
             emit(ResultOf.error(e, e.message))
         }
     }.flowOn(coroutineDispatcher)
-        .catch { exception ->
-            Log.d("TAG", exception.message.toString())
-            emit(ResultOf.error(exception, exception.message))
-        }
+        .catch { exception -> emit(ResultOf.error(exception, exception.message)) }
 }

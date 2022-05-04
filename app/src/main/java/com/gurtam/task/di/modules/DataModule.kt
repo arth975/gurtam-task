@@ -2,8 +2,11 @@ package com.gurtam.task.di.modules
 
 import android.content.Context
 import com.gurtam.task.data.local.NewsLocalDatabase
+import com.gurtam.task.data.local.dao.ArticleDao
 import com.gurtam.task.data.local.dao.NewsSourceDao
+import com.gurtam.task.data.network.services.ArticleService
 import com.gurtam.task.data.network.services.NewsSourceService
+import com.gurtam.task.data.repositories.sources.article.*
 import com.gurtam.task.data.repositories.sources.newssource.NewsSourceLocalDataSource
 import com.gurtam.task.data.repositories.sources.newssource.NewsSourceLocalDataSourceImpl
 import com.gurtam.task.data.repositories.sources.newssource.NewsSourceRemoteDataSource
@@ -23,7 +26,10 @@ class DataModule {
         NewsLocalDatabase.getInstance(context)
 
     @Provides
-    fun provideNewsSourceDto(db: NewsLocalDatabase) = db.newsSourceDao()
+    fun provideNewsSourceDao(db: NewsLocalDatabase) = db.newsSourceDao()
+
+    @Provides
+    fun provideArticleDao(db: NewsLocalDatabase) = db.articleDao()
 
     @Provides
     fun provideNewsSourceRemoteDataSource(newsSourceService: NewsSourceService): NewsSourceRemoteDataSource =
@@ -32,4 +38,13 @@ class DataModule {
     @Provides
     fun provideNewsSourceLocalDataSource(newsSourceDao: NewsSourceDao): NewsSourceLocalDataSource =
         NewsSourceLocalDataSourceImpl(newsSourceDao)
+
+    @Provides
+    fun provideArticleRemoteDataSource(articleService: ArticleService): ArticleRemoteDataSource =
+        ArticleRemoteDataSourceImpl(articleService)
+
+    @Provides
+    fun provideArticleLocalDataSource(articleDao: ArticleDao): ArticleLocalDataSource =
+        ArticleLocalDataSourceImpl(articleDao)
+
 }

@@ -5,10 +5,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_news_sources"
+        style="@style/RecyclerView_Style"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="@dimen/margin_common_horizontal"
-        android:paddingTop="@dimen/news_source_list_top_padding"
-        android:clipToPadding="false"/>
+        android:layout_height="match_parent" />
 
 </FrameLayout>

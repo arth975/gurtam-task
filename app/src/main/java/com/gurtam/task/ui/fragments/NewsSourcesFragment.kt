@@ -41,12 +41,12 @@ class NewsSourcesFragment : Fragment() {
 
     private fun setupNewsSourcesObserver() {
         mNewsSourcesViewModel.newsSourceLiveData.observe(viewLifecycleOwner) { resource ->
-            when(resource) {
+            when (resource) {
                 is Resource.Success<List<NewsSourceUI>> -> {
                     mNewsSourceAdapter.newsSources = resource.data
                 }
                 is Resource.Error -> {
-                    Toast.makeText(requireContext(), resource.message, Toast.LENGTH_LONG).show()
+                    /*Toast.makeText(requireContext(), resource.message, Toast.LENGTH_LONG).show()*/
                 }
             }
         }
@@ -61,6 +61,10 @@ class NewsSourcesFragment : Fragment() {
     }
 
     private fun onNewsSourceItemClick(newsSource: NewsSourceUI) {
-        findNavController().navigate(R.id.action_newsSourcesFragment_to_newsListFragment)
+        val action = NewsSourcesFragmentDirections.actionNewsSourcesFragmentToNewsListFragment(
+            newsSource = newsSource,
+            newsSourceName = newsSource.name ?: ""
+        )
+        findNavController().navigate(action)
     }
 }

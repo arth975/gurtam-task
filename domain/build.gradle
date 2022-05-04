@@ -11,9 +11,4 @@ java {
 dependencies {
     //Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${project.coroutines_version}"
-
-    //Paging Library
-    implementation "androidx.paging:paging-runtime:${project.paging_version}"
-    //Paging Library
-    implementation "androidx.paging:paging-common:${project.paging_version}"
 }
