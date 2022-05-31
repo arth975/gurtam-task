@@ -35,9 +35,11 @@ class NewsSourceAdapter(
 
     inner class SourceViewHolder(private val binding: ItemNewsSourceBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(newsSource: NewsSourceUI) {
-            binding.newsSource = newsSource
-            binding.root.setOnClickListener { onItemClick(newsSource) }
+        fun bind(newsSourceItem: NewsSourceUI) {
+            with(binding) {
+                newsSource = newsSourceItem
+                root.setOnClickListener { onItemClick(newsSourceItem) }
+            }
         }
     }
 }
@@ -50,11 +52,9 @@ class NewsSourceDiffCallback(
     override fun getOldListSize(): Int = oldList.size
     override fun getNewListSize(): Int = newList.size
 
-    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return oldList[oldItemPosition].id == newList[newItemPosition].id
-    }
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
+        oldList[oldItemPosition].id == newList[newItemPosition].id
 
-    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return oldList[oldItemPosition] == newList[newItemPosition]
-    }
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
+        oldList[oldItemPosition] == newList[newItemPosition]
 }

@@ -7,7 +7,5 @@ import kotlinx.coroutines.flow.Flow
 
 class GetAllNewsSourcesUseCase(private val newsSourceRepo: NewsSourceRepository) {
 
-    suspend operator fun invoke(): Flow<ResultOf<List<NewsSource>>> {
-        return newsSourceRepo.getAll()
-    }
+    suspend operator fun invoke(): Flow<ResultOf<List<NewsSource>>> = newsSourceRepo.getAll()
 }

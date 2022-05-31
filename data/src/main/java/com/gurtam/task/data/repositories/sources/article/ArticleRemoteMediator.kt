@@ -1,6 +1,5 @@
 package com.gurtam.task.data.repositories.sources.article
 
-import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -48,7 +47,6 @@ class ArticleRemoteMediator(
         }
     }
 
-    override suspend fun initialize(): InitializeAction {
-        return InitializeAction.LAUNCH_INITIAL_REFRESH
-    }
+    override suspend fun initialize(): InitializeAction = InitializeAction.LAUNCH_INITIAL_REFRESH
+
 }

@@ -21,14 +21,13 @@ class NewsSourceRepositoryImpl(
 ) : NewsSourceRepository {
 
     override suspend fun getAll(): Flow<ResultOf<List<NewsSource>>> = flow {
-        val cachedResource = ResultOf.success(localDataSource.fetchAll().map { it.toDomain() })
-        emit(cachedResource)
+        ResultOf.success(localDataSource.fetchAll()
+            .map { it.toDomain() })
+            .also { emit(it) }
 
         try {
             localDataSource.refresh(remoteDataSource.fetchAll().map { it.toEntity() })
-            val refreshedResource =
-                ResultOf.success(localDataSource.fetchAll().map { it.toDomain() })
-            emit(refreshedResource)
+            emit(ResultOf.success(localDataSource.fetchAll().map { it.toDomain() }))
         } catch (e: Exception) {
             emit(ResultOf.error(e, e.message))
         }

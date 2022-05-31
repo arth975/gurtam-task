@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.gurtam.task.R
 import com.gurtam.task.databinding.FragmentNewsSourcesBinding
 import com.gurtam.task.models.NewsSourceUI
 import com.gurtam.task.ui.adapters.NewsSourceAdapter
@@ -42,12 +41,11 @@ class NewsSourcesFragment : Fragment() {
     private fun setupNewsSourcesObserver() {
         mNewsSourcesViewModel.newsSourceLiveData.observe(viewLifecycleOwner) { resource ->
             when (resource) {
-                is Resource.Success<List<NewsSourceUI>> -> {
+                is Resource.Success<List<NewsSourceUI>> ->
                     mNewsSourceAdapter.newsSources = resource.data
-                }
-                is Resource.Error -> {
-                    /*Toast.makeText(requireContext(), resource.message, Toast.LENGTH_LONG).show()*/
-                }
+
+                is Resource.Error ->
+                    Toast.makeText(requireContext(), resource.message, Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -61,10 +59,11 @@ class NewsSourcesFragment : Fragment() {
     }
 
     private fun onNewsSourceItemClick(newsSource: NewsSourceUI) {
-        val action = NewsSourcesFragmentDirections.actionNewsSourcesFragmentToNewsListFragment(
+        NewsSourcesFragmentDirections.actionNewsSourcesFragmentToNewsListFragment(
             newsSource = newsSource,
             newsSourceName = newsSource.name ?: ""
-        )
-        findNavController().navigate(action)
+        ).also {
+            findNavController().navigate(it)
+        }
     }
 }

@@ -11,8 +11,6 @@ class GetPagedArticlesBySourceIdUseCase(private val articleRepository: ArticleRe
      * Architecture domain слой не должен зависить от какого либо framework-а. Все необходимые
      * преобразование происходят в слойе presentation - в нашем случае в ArticlesListViewModel.
      * */
-    suspend operator fun invoke(sourceId: String): Flow<*> {
-        return articleRepository.getArticlesBySourceId(sourceId)
-    }
-
+    suspend operator fun invoke(sourceId: String): Flow<*> =
+        articleRepository.getArticlesBySourceId(sourceId)
 }

@@ -15,7 +15,6 @@ class ArticleLocalDataSourceImpl(
         articleDao.refresh(articles, newsSourceId)
     }
 
-    override fun articlesPagingSource(newsSourceId: String): PagingSource<Int, ArticleEntity> {
-        return articleDao.articlesBySourceIdPageSource(newsSourceId)
-    }
+    override fun articlesPagingSource(newsSourceId: String): PagingSource<Int, ArticleEntity> =
+        articleDao.articlesBySourceIdPageSource(newsSourceId)
 }

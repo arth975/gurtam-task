@@ -7,16 +7,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gurtam.task.databinding.FragmentArticlesListBinding
 import com.gurtam.task.models.ArticleUI
 import com.gurtam.task.ui.adapters.ArticlesPagingDataAdapter
 import com.gurtam.task.ui.viewmodels.ArticlesListViewModel
 import com.gurtam.task.utils.Resource
+import com.gurtam.task.utils.addRepeatedJob
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,7 +36,7 @@ class ArticlesListFragment : Fragment() {
             mArticlesListViewModel.fetchArticles(args.newsSource.id)
             mBinding = FragmentArticlesListBinding.inflate(inflater)
             setupArticlesList()
-            setupArticlesPagingDataObserver()
+            handleArticlesPagingDataFlow()
         }
         return mBinding?.root
     }
@@ -50,23 +50,23 @@ class ArticlesListFragment : Fragment() {
     }
 
     private fun onArticleItemClick(article: ArticleUI) {
-        val action = ArticlesListFragmentDirections
-            .actionNewsListFragmentToSingleNewsFragment(article, args.newsSourceName)
-        findNavController().navigate(action)
+        ArticlesListFragmentDirections.actionNewsListFragmentToSingleNewsFragment(
+            article = article,
+            newsSourceName = args.newsSourceName
+        ).also {
+            findNavController().navigate(it)
+        }
     }
 
-    private fun setupArticlesPagingDataObserver() {
+    private fun handleArticlesPagingDataFlow() {
         mArticlesListViewModel.articlePagingDataLiveData.observe(viewLifecycleOwner) { resource ->
-            viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewLifecycleOwner.addRepeatedJob(Lifecycle.State.STARTED) {
                 when (resource) {
-                    is Resource.Success -> {
-                            mArticlesPagingAdapter?.submitData(resource.data)
-                    }
+                    is Resource.Success ->
+                        mArticlesPagingAdapter?.submitData(resource.data)
 
-                    is Resource.Error -> {
-                        Toast.makeText(requireContext(), resource.message, Toast.LENGTH_LONG)
-                            .show()
-                    }
+                    is Resource.Error ->
+                        Toast.makeText(requireContext(), resource.message, Toast.LENGTH_LONG).show()
                 }
             }
         }

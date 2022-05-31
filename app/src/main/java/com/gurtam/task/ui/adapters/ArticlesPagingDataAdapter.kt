@@ -38,12 +38,9 @@ class ArticlesPagingDataAdapter(
 }
 
 class ArticleItemDiffCallback : DiffUtil.ItemCallback<ArticleUI>() {
-    override fun areItemsTheSame(oldItem: ArticleUI, newItem: ArticleUI): Boolean {
-        return oldItem.url == newItem.url
-    }
+    override fun areItemsTheSame(oldItem: ArticleUI, newItem: ArticleUI): Boolean =
+        oldItem.url == newItem.url
 
-    override fun areContentsTheSame(oldItem: ArticleUI, newItem: ArticleUI): Boolean {
-        return oldItem == newItem
-    }
-
+    override fun areContentsTheSame(oldItem: ArticleUI, newItem: ArticleUI): Boolean =
+        oldItem == newItem
 }

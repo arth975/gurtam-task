@@ -43,6 +43,5 @@ fun ArticleEntity.toDomain() = Article(
     publishedDate = this.publishedAt,
     title = this.title,
     url = this.url,
-    imageUrl = this.imageUrl,
-    //id = this.id
+    imageUrl = this.imageUrl
 )
